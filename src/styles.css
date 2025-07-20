@@ -1,0 +1,196 @@
+/* Variables con los colores originales */
+:root {
+  --color-fondo: #000;
+  --color-titulo: #6cf;
+  --color-letra: #ffffff;
+  --color-bloque-pendiente: #444;
+  --color-bloque-regularizada: #3399ff;
+  --color-bloque-promocionada: #003366;
+  --color-bloque-bloqueado: #222;
+  --color-bloque-default: #ccc;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-letra);
+  font-family: sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-fondo);
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-icon {
+  font-size: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  gap: 7px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.columna h2 {
+  text-align: center;
+  color: var(--color-titulo);
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.bloque {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  background-color: var(--color-bloque-default);
+  margin-bottom: 10px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.bloque .numero {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.bloque .nombre {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: pre-wrap;
+  color: var(--color-letra);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.pendiente {
+  background-color: var(--color-bloque-pendiente);
+}
+
+.regularizada {
+  background-color: var(--color-bloque-regularizada);
+  color: #000;
+}
+
+.promocionada {
+  background-color: var(--color-bloque-promocionada);
+  color: #fff;
+}
+
+.bloque-bloqueado {
+  background-color: var(--color-bloque-bloqueado);
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Tamaño más pequeño para bloques de electivas */
+.electiva {
+  width: 145px;
+  height: 90px;
+}
+
+.subcolumnas {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start; 
+}
+
+.subcolumna {
+  display: flex;
+  flex-direction: column;
+/*veamos que pasa con esto*/
+  padding: 0;
+  border: none;
+}
+
+.fila {
+  height: 40px;
+  color: var(--color-letra);
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.fila:last-child {
+  border-bottom: none;
+}
+
+.sidebar {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background-color: var(--color-fondo);
+  border: 1px solid #444;
+  padding: 15px;
+  z-index: 20;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.sidebar button,
+.sidebar input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar input[type="file"] {
+  background-color: #222;
+  color: #ccc;
+}
+
+.sidebar button {
+  background-color: var(--color-bloque-promocionada);
+  color: white;
+}
+
+.sidebar button:hover {
+  background-color: #005599;
+}
+
+

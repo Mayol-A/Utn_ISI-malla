@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/malla-ingenieria-sistemas-utn/static/css/main.5d4624e4.css",
+    "main.js": "/malla-ingenieria-sistemas-utn/static/js/main.93b1ffa4.js",
+    "index.html": "/malla-ingenieria-sistemas-utn/index.html",
+    "main.5d4624e4.css.map": "/malla-ingenieria-sistemas-utn/static/css/main.5d4624e4.css.map",
+    "main.93b1ffa4.js.map": "/malla-ingenieria-sistemas-utn/static/js/main.93b1ffa4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5d4624e4.css",
+    "static/js/main.93b1ffa4.js"
+  ]
+}
