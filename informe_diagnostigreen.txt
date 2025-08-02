@@ -1,0 +1,21 @@
+Diagnóstico de Sistema - DiagnostiGreen
+
+Uso de CPU: 18.1%
+Uso de RAM: 89.3%
+Espacio libre en disco: 227.49 GB (52.2% usado)
+
+Programas en el inicio:
+- HPSEU_Host_Launcher
+- OneDrive
+- Discord
+- Opera GX Stable
+- Opera GX Browser Assistant
+- CiscoMeetingDaemon
+- com.cron.electron
+- MicrosoftEdgeAutoLaunch_C7D47A9DCB4330CB9BAF4542A072DB61
+
+Problemas detectados:
+- Uso elevado de RAM.
+- Muchos programas en el inicio del sistema.
+
+Diagnóstico final: La lentitud parece deberse a software. Se recomienda limpieza y optimización.
