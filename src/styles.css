@@ -1,4 +1,3 @@
-/* Variables con los colores originales */
 :root {
   --color-fondo: #000;
   --color-titulo: #6cf;
@@ -9,12 +8,13 @@
   --color-bloque-bloqueado: #222;
   --color-bloque-default: #ccc;
 }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 body {
   margin: 0;
   background-color: var(--color-fondo);
   color: var(--color-letra);
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .header {
@@ -121,7 +121,6 @@ h1 {
   pointer-events: none;
 }
 
-/* Tamaño más pequeño para bloques de electivas */
 .electiva {
   width: 145px;
   height: 90px;
@@ -138,7 +137,6 @@ h1 {
 .subcolumna {
   display: flex;
   flex-direction: column;
-/*veamos que pasa con esto*/
   padding: 0;
   border: none;
 }
@@ -155,42 +153,140 @@ h1 {
   border-bottom: none;
 }
 
-.sidebar {
-  position: absolute;
-  top: 60px;
-  left: 10px;
-  background-color: var(--color-fondo);
-  border: 1px solid #444;
-  padding: 15px;
-  z-index: 20;
-  border-radius: 6px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+/* NUEVO SIDEBAR con Slide + Blur */
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100dvh;
+  padding: 12px 14px 16px;
+  background: rgba(73, 77, 85, 0.85); /* oscuro translúcido */
+  backdrop-filter: blur(8px);       /* efecto blur */
+  -webkit-backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(108, 204, 255, 0.25);
+  transform: translateX(-100%);     /* oculto */
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1);
+  z-index: 1300;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}  
+
+.sidebar-container.open {
+  transform: translateX(0); /* visible */
 }
 
-.sidebar button,
-.sidebar input {
-  display: block;
-  margin-bottom: 10px;
-  width: 100%;
+/* Overlay con blur suave */
+.sidebar__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(1px);
+  z-index: 1200;
+  opacity: 0;
+  animation: fadeIn .3s ease forwards;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.sidebar__header {
+  flex: 0 0 auto;
+  position: sticky;
+  top: 0; 
+  z-index: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 8px;
-  font-size: 14px;
-  border-radius: 4px;
+  margin-bottom: 10px;
+  background: inherit;
+  backdrop-filter: inherit;
+  -webkit-backdrop-filter: inherit;
+}
+
+.sidebar__title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;           
+  font-size: 16px;
+  letter-spacing: .3px; 
+  color: rgba(230, 231, 237, 0.945);
+}
+
+.sidebar__close {
+  background: none;       /* sin fondo */
   border: none;
+  color: var(--color-letra);
+  width: 32px;           
+  height: 32px;
+  padding: 0;
+  display: grid;  
+  place-items: center;
+  font-size: 20px;        
+  line-height: 1;
   cursor: pointer;
+  border-radius: 6px;
+  transition: color .15s ease, background-color .15s ease;
+             
 }
 
-.sidebar input[type="file"] {
-  background-color: #222;
-  color: #ccc;
+.sidebar__close:hover {
+  color: hsl(208, 41%, 64%) ;        
+  background: rgba(255,255,255,.05); 
 }
 
-.sidebar button {
-  background-color: var(--color-bloque-promocionada);
-  color: white;
+.sidebar__content {
+  flex: 1 1 auto;                
+  min-height: 0;
+  overflow-y: auto;       /* ⬅️ scroll real del menú */
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;     /* que la barra de scroll no tape el texto */
 }
 
-.sidebar button:hover {
-  background-color: #005599;
+/* Controles dentro del sidebar */
+.sidebar-container button:not(.sidebar__close),
+.sidebar-container input[type="file"] {
+  width: 100%;
+  appearance: none;
+  border: 1px solid #2d3642;
+  background: #1f2732;
+  color: #e6eef8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .12s ease;
 }
+
+.sidebar-container button:not(.sidebar__close) {
+  background: #2a2a2a;    
+  color: #e0e0e0;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar-container button:not(.sidebar__close):hover { 
+  background: #273140;    
+  border-color: #3a4656;
+  color: #90caf9;
+  transform: translateY(-1px);
+}
+
+.sidebar-container input[type="file"] {
+  border-style: dashed;
+  background: #11161c;
+  color: #bfc7d1;
+}
+
+.header { z-index: 1100; }
 
 

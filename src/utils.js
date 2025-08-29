@@ -79,7 +79,6 @@ export async function guardarProgresoMaterias(estadoMaterias) {
   }
 }
 
-// Correlativas 
 export const correlativas = {
   9: { r: [1, 2] },
   10: { r: [1, 3] },
@@ -111,7 +110,6 @@ export const correlativas = {
   37: { r: [25, 26, 30], p: [20, 23] }
 };
 
-// Materias
 export const materias = {
   "1° Año": [
     { id: 1, nombre: "Análisis Matemático I" },

@@ -1,0 +1,71 @@
+/* ===== Barras ===== */
+.progress-container {
+  max-width: 600px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.progress-bar {
+  position: relative;
+  background: #ddd;
+  border-radius: 8px;
+  height: 25px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress-bar.mini { height: 20px; }
+
+.progress-fill {
+  background: #6cf;              /* color pedido */
+  height: 100%;
+  transition: width 1s ease-in-out;  /* animación CSS */
+}
+
+.progress-text {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  font-weight: bold;
+}
+
+/* Botones */
+.btn-mas,
+.btn-cerrar {
+  padding: 8px 14px;
+  border: none;
+  background: #6cf;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-mas:hover,
+.btn-cerrar:hover { background: #5ab; }
+
+.mini-section { margin-top: 20px; }
+
+/* ===== Modal (Más) ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;                         /* top/right/bottom/left: 0 */
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;                    /* por encima de todo */
+}
+
+.modal-content {
+  background: #ffffff;
+  color: #000000;                    /* <<< clave: texto negro */
+  padding: 24px;
+  border-radius: 12px;
+  width: min(640px, 92vw);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+.modal-content h3 { margin-top: 0; }
+.modal-content ul { margin: 8px 0 0 18px; }
+
